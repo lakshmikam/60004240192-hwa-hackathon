@@ -196,17 +196,19 @@ export default function Product() {
                 <div className="extra-kit-row">
                   <div>
                     <strong>{DOUBLE.name}</strong>
+                    <p>{DOUBLE.tagline}</p>
                     <p>
-                      {DOUBLE.stations} stations — two full trails. Ideal for
-                      bigger homes or rotating the trail between rooms.
+                      {DOUBLE.description} Ideal for bigger homes or rotating
+                      the trail between rooms.
                     </p>
                     <span className="extra-price">{formatPrice(DOUBLE.price)}</span>
                   </div>
                   <div>
                     <strong>{TRIPLE.name}</strong>
+                    <p>{TRIPLE.tagline}</p>
                     <p>
-                      {TRIPLE.stations} stations — three full trails. Best for
-                      multi-dog homes or back-to-back days away.
+                      {TRIPLE.description} Best for multi-dog homes or
+                      back-to-back days away.
                     </p>
                     <span className="extra-price">{formatPrice(TRIPLE.price)}</span>
                   </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DogMascot from '../components/DogMascot';
 import StationArt from '../components/StationArt';
+import { KITS } from '../data/kits';
 import { formatQuestTime, formatPrice } from '../lib/format';
 import {
   ArrowRightIcon,
@@ -22,7 +23,11 @@ const ROOMS = ['Kitchen corner', 'Hallway rug', 'Living room'];
 export default function Demo() {
   const [elapsed, setElapsed] = useState(0);
   const [running, setRunning] = useState(false);
-  const [offsets, setOffsets] = useState([...DEFAULT_OFFSETS]);
+  const [offsetInputs, setOffsetInputs] = useState(
+    DEFAULT_OFFSETS.map(String)
+  );
+
+  const offsets = offsetInputs.map((v) => Number(v) || 0);
 
   const QUEST = [
     { id: 1, room: ROOMS[0], offset: offsets[0], trail: 20 },
@@ -97,8 +102,10 @@ export default function Demo() {
           </span>
           <h1>Follow the nose.</h1>
           <p>
-            Three stations open at 09:30, 10:15 and 11:00 while the dog follows
-            its nose — a two-hour window compressed into 18 seconds.
+            Three stations open at {formatQuestTime(offsets[0])},{' '}
+            {formatQuestTime(offsets[1])} and {formatQuestTime(offsets[2])}
+            while the dog follows its nose — a two-hour window compressed into
+            18 seconds.
           </p>
           <span className="demo-chip">
             Interactive demo · 18 seconds
@@ -245,14 +252,11 @@ export default function Demo() {
                       min={0}
                       max={QUEST_MINUTES}
                       step={5}
-                      value={station.offset}
+                      value={offsetInputs[station.id - 1]}
                       onChange={(event) => {
-                        const next = [...offsets];
-                        next[station.id - 1] = Math.min(
-                          QUEST_MINUTES,
-                          Math.max(0, Number(event.target.value) || 0)
-                        );
-                        setOffsets(next);
+                        const next = [...offsetInputs];
+                        next[station.id - 1] = event.target.value;
+                        setOffsetInputs(next);
                       }}
                     />
                     <span className="time-unit">min from start</span>
@@ -261,11 +265,11 @@ export default function Demo() {
                 <button
                   type="button"
                   className="text-link"
-                  onClick={() => setOffsets([...DEFAULT_OFFSETS])}
+                  onClick={() => setOffsetInputs([...DEFAULT_OFFSETS.map(String)])}
                   disabled={
-                    offsets[0] === DEFAULT_OFFSETS[0] &&
-                    offsets[1] === DEFAULT_OFFSETS[1] &&
-                    offsets[2] === DEFAULT_OFFSETS[2]
+                    offsetInputs[0] === DEFAULT_OFFSETS[0].toString() &&
+                    offsetInputs[1] === DEFAULT_OFFSETS[1].toString() &&
+                    offsetInputs[2] === DEFAULT_OFFSETS[2].toString()
                   }
                 >
                   Reset to default
@@ -307,10 +311,13 @@ export default function Demo() {
                 </li>
               </ul>
               <p className="muted-note" style={{ marginTop: 10 }}>
-                Start with the <strong>Starter Quest</strong> ({formatPrice(36)}) —
-                one three-station trail. Need more? Double Quest ({formatPrice(
-                  64
-                )}) adds six stations, Triple Quest ({formatPrice(89)}) adds nine.
+                Start with the{' '}
+                <strong>{KITS[0].name}</strong> ({formatPrice(KITS[0].price)})
+                — {KITS[0].tagline.toLowerCase()}. Need more?{' '}
+                <strong>{KITS[1].name}</strong> ({formatPrice(KITS[1].price)})
+                — {KITS[1].tagline.toLowerCase()}.{' '}
+                <strong>{KITS[2].name}</strong> ({formatPrice(KITS[2].price)})
+                — {KITS[2].tagline.toLowerCase()}.
               </p>
             </div>
 

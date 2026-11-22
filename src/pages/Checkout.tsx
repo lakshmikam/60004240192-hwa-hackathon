@@ -125,6 +125,14 @@ export default function Checkout() {
           </span>
           <h1>One last stop.</h1>
           <p>Use any details — no payment is taken and no real order is placed.</p>
+          <Link className="btn btn-primary" to="/cart" style={{ marginTop: 14, display: 'inline-flex', gap: 8, alignItems: 'center' }}>
+            <ArrowLeftIcon size={15} /> Back to cart
+          </Link>
+        </div>
+
+        <div className="fill-details-cta">
+          <span className="eyebrow">Fill in your delivery details</span>
+          <p>Any details work — this is a demo, no payment is taken.</p>
         </div>
 
         <form className="checkout-grid" onSubmit={handleSubmit} noValidate>

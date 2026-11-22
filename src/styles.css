@@ -2963,6 +2963,28 @@ svg {
 
 /* Checkout */
 
+.fill-details-cta {
+  margin: 14px 0 22px;
+  padding: 16px 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fill-details-cta .eyebrow {
+  color: var(--coral-deep);
+}
+
+.fill-details-cta p {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+
 .checkout-grid {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
