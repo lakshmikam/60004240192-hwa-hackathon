@@ -138,25 +138,31 @@ export default function Product() {
                 </button>
               </div>
 
-              <button
-                type="button"
-                className={`btn btn-primary btn-block ${added ? 'is-added' : ''}`}
-                onClick={handleAdd}
-              >
-                {added ? (
-                  <>
-                    <CheckIcon size={18} /> Added to cart
-                  </>
-                ) : (
-                  <>
-                    Add to cart <ArrowRightIcon size={17} />
-                  </>
-                )}
-              </button>
-              <p className="muted-note">
-                {qty > 1 ? `${qty} Starter Quests added to your cart.` : ''}
-                Demo store — no payment is taken.
-              </p>
+              {added ? (
+                <div className="add-feedback">
+                  <CheckIcon size={20} />
+                  <div>
+                    <strong>{qty} added to cart</strong>
+                    <p>Demo store — no payment is taken.</p>
+                  </div>
+                  <div className="add-feedback-actions">
+                    <Link className="btn btn-primary btn-block" to="/cart">
+                      View cart <ArrowRightIcon size={15} />
+                    </Link>
+                    <Link className="btn btn-ghost btn-block" to="/checkout">
+                      Checkout
+                    </Link>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  className="btn btn-primary btn-block"
+                  onClick={handleAdd}
+                >
+                  Add to cart <ArrowRightIcon size={17} />
+                </button>
+              )}
 
               <ul className="product-points">
                 <li>3 timed stations per quest</li>

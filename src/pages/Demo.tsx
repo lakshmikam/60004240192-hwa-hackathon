@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DogMascot from '../components/DogMascot';
 import StationArt from '../components/StationArt';
-import { formatQuestTime } from '../lib/format';
+import { formatQuestTime, formatPrice } from '../lib/format';
 import {
   ArrowRightIcon,
   CheckIcon,
@@ -306,6 +306,12 @@ export default function Demo() {
                   </p>
                 </li>
               </ul>
+              <p className="muted-note" style={{ marginTop: 10 }}>
+                Start with the <strong>Starter Quest</strong> ({formatPrice(36)}) —
+                one three-station trail. Need more? Double Quest ({formatPrice(
+                  64
+                )}) adds six stations, Triple Quest ({formatPrice(89)}) adds nine.
+              </p>
             </div>
 
             <div className="side-card">

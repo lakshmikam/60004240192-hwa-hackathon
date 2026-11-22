@@ -1852,6 +1852,52 @@ svg {
   margin: 0;
 }
 
+/* Add to cart feedback */
+.add-feedback {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--blush);
+  border: 1px solid #ecd5ca;
+  border-radius: var(--radius);
+  padding: 16px;
+  margin: 14px 0;
+}
+
+.add-feedback svg {
+  flex: none;
+}
+
+.add-feedback > div {
+  flex: 1;
+}
+
+.add-feedback strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.add-feedback p {
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.add-feedback-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: none;
+}
+
+.add-feedback-actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
 /* Extra kits */
 .extra-kits {
   margin: 22px 0;
