@@ -20,13 +20,13 @@ export function StationRender({ time, room, accent, dispensing = false }: Statio
 
       {/* base / feet */}
       <rect x={-44} y={146} width={88} height={14} rx={7} fill="#c3b29a" stroke="#b7a58c" strokeWidth="1" />
-      <rect x={-40} y={150} width={80} height={8} rx={4} fill="#b7a58c" />
-      <rect x={-38} y={156} width={10} height={6} rx="3" fill="#8f7a66" />
-      <rect x={28} y={156} width={10} height="6" rx="3" fill="#8f7a66" />
+      <rect x={-40} y={150} width={80} height="8" rx="4" fill="#b7a58c" />
+      <rect x={-38} y={156} width="10" height="6" rx="3" fill="#8f7a66" />
+      <rect x={28} y={156} width="10" height="6" rx="3" fill="#8f7a66" />
 
       {/* body - ceramic */}
-      <rect x={-56} y={32} width={112} height={116} rx="24" fill="#fffdf8" stroke="#d9c7ae" strokeWidth="2" />
-      <rect x={-52} y={36} width={104} height="108" rx="20" fill="#fbf7ee" />
+      <rect x={-56} y={32} width="112" height="116" rx="24" fill="#fffdf8" stroke="#d9c7ae" strokeWidth="2" />
+      <rect x={-52} y={36} width="104" height="108" rx="20" fill="#fbf7ee" />
 
       {/* lid */}
       <rect x={-50} y={14} width="100" height="24" rx="12" fill="#f3ecdf" stroke="#d9c7ae" strokeWidth="2" />
@@ -68,14 +68,13 @@ export function StationRender({ time, room, accent, dispensing = false }: Statio
 
       {/* dispensing opening */}
       <path d="M-30 110 Q0 122 30 110" fill="none" stroke="#9a8e80" strokeWidth="2" strokeLinecap="round" />
-      <rect x={-22} y={116} width="44" height="4" rx="2" fill="#e8ddd0" />
 
       {/* kibble falling from middle station */}
       {dispensing && [
         <circle cx={-16} cy={128} r="3.5" fill={dark} key="k1" />,
         <circle cx={-6} cy={138} r="3" fill={main} key="k2" />,
         <circle cx={4} cy={148} r="3.5" fill={dark} key="k3" />,
-        <circle cx={14} cy={156} r="3" fill={main} key="k4" />,
+        <circle cx={14} cy={158} r="3" fill={main} key="k4" />,
       ]}
 
       {/* time label */}
@@ -142,8 +141,8 @@ export default function HeroRender() {
           <StationRender time="11:00" room="Living room" accent="sun" />
         </g>
 
-        {/* bowl under dispensing station */}
-        <g transform="translate(350, 290)" filter="url(#hero-shadow)">
+        {/* bowl directly beneath the middle feeder dispensing opening */}
+        <g transform="translate(350, 185)" filter="url(#hero-shadow)">
           {/* bowl shadow */}
           <ellipse cx={0} cy="78" rx="56" ry="10" fill="#2a241f" opacity="0.09" />
           {/* bowl */}
@@ -165,7 +164,7 @@ export default function HeroRender() {
         </g>
 
         {/* dog beside bowl */}
-        <g transform="translate(500, 300)" filter="url(#hero-shadow)">
+        <g transform="translate(500, 185)" filter="url(#hero-shadow)">
           {/* sitting shadow */}
           <ellipse cx={0} cy="96" rx="50" ry="10" fill="#2a241f" opacity="0.08" />
 
@@ -219,7 +218,7 @@ export default function HeroRender() {
         </g>
 
         {/* soft glow behind bowl */}
-        <ellipse cx={350} cy="308" rx="90" ry="50" fill="url(#hero-bowl-glow)" />
+        <ellipse cx={350} cy="203" rx="90" ry="50" fill="url(#hero-bowl-glow)" />
       </svg>
     </div>
   );
