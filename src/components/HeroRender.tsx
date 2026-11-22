@@ -1,3 +1,5 @@
+import DogMascot from './DogMascot';
+
 type StationProps = {
   time: string;
   room: string;
@@ -174,6 +176,7 @@ export default function HeroRender() {
         {/* soft glow behind bowl */}
         <ellipse cx={330} cy={278} rx={86} ry={46} fill="url(#hero-bowl-glow)" />
       </svg>
+      <DogMascot size={100} className="hero-dog" title="The SniffQuest dog waiting for its food" />
     </div>
   );
 }
