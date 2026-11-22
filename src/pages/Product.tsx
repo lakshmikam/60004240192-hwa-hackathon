@@ -190,6 +190,42 @@ export default function Product() {
                 </p>
               </div>
 
+              <div className="three-device-callout">
+                <span className="eyebrow">Why three stations at once</span>
+                <h3>A treasure hunt — not just a bowl.</h3>
+                <p>
+                  Three devices placed in different rooms turn your dog’s meal
+                  into a treasure hunt. Each station is a puzzle: your dog has
+                  to find it, sniff it out, and wait for its release time.
+                </p>
+                <ul className="three-device-list">
+                  <li>
+                    <strong>Three separate hunts.</strong>
+                    <span>
+                      Stations release one at a time, so your dog searches,
+                      eats, then searches again — instead of gulping one bowl in
+                      seconds.
+                    </span>
+                  </li>
+                  <li>
+                    <strong>One puzzle, three pieces.</strong>
+                    <span>
+                      Each station holds one portion. Your dog needs all three
+                      to finish the meal, which keeps them occupied across the
+                      whole time you’re away.
+                    </span>
+                  </li>
+                  <li>
+                    <strong>Mental enrichment.</strong>
+                    <span>
+                      Sniffing and searching is natural dog behaviour. Three
+                      timed drops give your dog a job to do, not just food to
+                      eat.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
               <div className="extra-kits">
                 <span className="eyebrow">Need more trails?</span>
                 <h3>Extra kits explained.</h3>
