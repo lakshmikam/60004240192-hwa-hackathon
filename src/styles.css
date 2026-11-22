@@ -3091,7 +3091,8 @@ svg {
 
 @media (max-width: 1020px) {
   .hero-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(1rem, 3vw, 2rem);
   }
 
   .hero-copy {
@@ -3102,6 +3103,24 @@ svg {
     width: 100%;
     max-width: 660px;
     margin-inline: auto;
+  }
+
+  .hero {
+    padding-top: clamp(1rem, 4vw, 2rem);
+    padding-bottom: clamp(1.5rem, 6vw, 3rem);
+  }
+
+  .render-stage {
+    min-height: 300px;
+  }
+
+  .hero-illustration {
+    min-height: 240px;
+    max-height: 420px;
+  }
+
+  .hero-actions {
+    margin-top: 1.25rem;
   }
 
   .product-grid {
@@ -3202,10 +3221,6 @@ svg {
     min-width: 19px;
     height: 19px;
     font-size: 10.5px;
-  }
-
-  .cart-label {
-    display: none;
   }
 }
 
