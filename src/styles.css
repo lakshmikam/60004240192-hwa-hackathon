@@ -2069,15 +2069,18 @@ svg {
   position: relative;
   width: 100%;
   max-width: 420px;
-  height: 260px;
   background: var(--ivory);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+  min-height: 200px;
+  overflow: visible;
 }
 
 .room {
@@ -2085,7 +2088,8 @@ svg {
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  width: 100%;
+  width: auto;
+  flex: none;
 }
 
 .mini-svg {
@@ -2234,6 +2238,7 @@ svg {
   }
 
   .home-map {
+    flex-direction: column;
     max-width: 100%;
   }
 
