@@ -1,5 +1,3 @@
-import DogMascot from './DogMascot';
-
 type StationProps = {
   time: string;
   room: string;
@@ -18,36 +16,73 @@ export function StationRender({ time, room, accent, dispensing = false }: Statio
   return (
     <g className="station">
       {/* shadow */}
-      <ellipse cx={0} cy={150} rx={62} ry={14} fill="#2a241f" opacity="0.08" />
-      {/* body */}
-      <rect x={-60} y={20} width={120} height={130} rx={20} fill="#fbf7ee" stroke="#d9c7ae" strokeWidth="2" />
-      <rect x={-54} y={26} width={108} height={118} rx={16} fill="#fffdf8" />
-      {/* hopper top */}
-      <rect x={-52} y={8} width={104} height={22} rx={11} fill="#f3ecdf" stroke="#d9c7ae" strokeWidth="2" />
-      <circle cx={0} cy={8} r={5} fill={dark} />
-      {/* glass window */}
-      <rect x={-44} y={36} width={88} height={92} rx={14} fill="url(#hero-glass)" />
-      <rect x={-44} y={36} width={88} height={92} rx={14} fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
+      <ellipse cx={0} cy={162} rx={66} ry={12} fill="#2a241f" opacity="0.08" />
+
+      {/* base / feet */}
+      <rect x={-44} y={146} width={88} height={14} rx={7} fill="#c3b29a" stroke="#b7a58c" strokeWidth="1" />
+      <rect x={-40} y={150} width={80} height={8} rx={4} fill="#b7a58c" />
+      <rect x={-38} y={156} width={10} height={6} rx="3" fill="#8f7a66" />
+      <rect x={28} y={156} width={10} height="6" rx="3" fill="#8f7a66" />
+
+      {/* body - ceramic */}
+      <rect x={-56} y={32} width={112} height={116} rx="24" fill="#fffdf8" stroke="#d9c7ae" strokeWidth="2" />
+      <rect x={-52} y={36} width={104} height="108" rx="20" fill="#fbf7ee" />
+
+      {/* lid */}
+      <rect x={-50} y={14} width="100" height="24" rx="12" fill="#f3ecdf" stroke="#d9c7ae" strokeWidth="2" />
+      <rect x={-46} y={16} width="92" height="18" rx="10" fill="#eadcc8" />
+      {/* lid handle */}
+      <rect x={-3} y={10} width="6" height="6" rx="3" fill={dark} />
+      <circle cx={0} cy={13} r="1.5" fill="#fffdf8" />
+
+      {/* timer control dial */}
+      <circle cx={0} cy={34} r="13" fill="#e8ddd0" stroke="#d9c7ae" strokeWidth="2" />
+      <circle cx={0} cy={34} r="9" fill="#f3ecdf" />
+      {/* timer markings */}
+      {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+        <path
+          key={deg}
+          d="M0 -9 L0 -13"
+          stroke="#9a8e80"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          transform={`rotate(${deg} 0 34)`}
+        />
+      ))}
+      {/* timer hand */}
+      <path d="M0 34 L4 26" stroke={dark} strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx={0} cy={34} r="2" fill="#fffdf8" />
+
+      {/* food compartment window */}
+      <rect x={-42} y={46} width="84" height="64" rx="12" fill="url(#hero-glass)" />
+      <rect x={-42} y={46} width="84" height="64" rx="12" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" />
+
+      {/* kibble inside window */}
+      <g opacity="0.9">
+        <circle cx={-26} cy={58} r="4" fill={dark} />
+        <circle cx={-14} cy={64} r="3.5" fill={main} />
+        <circle cx={0} cy={56} r="4" fill={dark} />
+        <circle cx={14} cy={62} r="3.5" fill={main} />
+        <circle cx={26} cy={58} r="4" fill={dark} />
+      </g>
+
+      {/* dispensing opening */}
+      <path d="M-30 110 Q0 122 30 110" fill="none" stroke="#9a8e80" strokeWidth="2" strokeLinecap="round" />
+      <rect x={-22} y={116} width="44" height="4" rx="2" fill="#e8ddd0" />
+
       {/* kibble falling from middle station */}
       {dispensing && [
-        <circle cx={-14} cy={106} r={3.5} fill={dark} key="k1" />,
-        <circle cx={-6} cy={116} r={3} fill={main} key="k2" />,
-        <circle cx={2} cy={124} r={3.5} fill={dark} key="k3" />,
-        <circle cx={10} cy={132} r={3} fill={main} key="k4" />,
+        <circle cx={-16} cy={128} r="3.5" fill={dark} key="k1" />,
+        <circle cx={-6} cy={138} r="3" fill={main} key="k2" />,
+        <circle cx={4} cy={148} r="3.5" fill={dark} key="k3" />,
+        <circle cx={14} cy={156} r="3" fill={main} key="k4" />,
       ]}
-      {/* food line */}
-      <rect x={-38} y={134} width={76} height={4} rx={2} fill="#e8ddd0" />
-      {/* base */}
-      <rect x={-50} y={138} width={100} height={18} rx={9} fill="#c3b29a" />
-      <rect x={-46} y={142} width={92} height={10} rx={6} fill="#b7a58c" />
-      {/* feet */}
-      <rect x={-44} y={152} width={10} height={6} rx={2} fill="#8f7a66" />
-      <rect x={34} y={152} width={10} height={6} rx={2} fill="#8f7a66" />
+
       {/* time label */}
-      <text x={0} y={178} textAnchor="middle" fontFamily="var(--font-display)" fontSize="13" fontWeight="500" fill="#2a241f" letterSpacing="-0.01em">
+      <text x={0} y={180} textAnchor="middle" fontFamily="var(--font-display)" fontSize="12" fontWeight="500" fill="#2a241f" letterSpacing="-0.01em">
         {time}
       </text>
-      <text x={0} y={194} textAnchor="middle" fontSize="9.5" fontWeight="500" letterSpacing="0.1em" style={{ textTransform: 'uppercase' }} fill="#9a8e80">
+      <text x={0} y={196} textAnchor="middle" fontSize="9" fontWeight="500" letterSpacing="0.1em" style={{ textTransform: 'uppercase' }} fill="#9a8e80">
         {room}
       </text>
     </g>
@@ -59,10 +94,10 @@ export default function HeroRender() {
     <div className="hero-render">
       <svg
         className="hero-illustration"
-        viewBox="0 0 660 500"
+        viewBox="0 0 700 540"
         preserveAspectRatio="xMidYMid meet"
         role="img"
-        aria-label="SniffQuest concept illustration: three timed feeder stations, one dispensing kibble into a bowl for a dog"
+        aria-label="SniffQuest concept illustration: three physical feeder stations with timers, one dispensing kibble into a bowl for a dog"
       >
         <defs>
           <linearGradient id="hero-glass" x1="0" y1="0" x2="1" y2="1">
@@ -88,95 +123,104 @@ export default function HeroRender() {
         </defs>
 
         {/* soft backdrop card */}
-        <rect x={18} y={16} width={624} height={436} rx={38} fill="#fffdf8" />
-        <rect x={18} y={16} width={624} height={436} rx={38} fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="2" />
-        <rect x={18} y={16} width={624} height={436} rx={38} fill="none" stroke="rgba(42,36,31,0.06)" strokeWidth="1" />
+        <rect x={18} y={16} width="664" height="476" rx="38" fill="#fffdf8" />
+        <rect x={18} y={16} width="664" height="476" rx="38" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="2" />
+        <rect x={18} y={16} width="664" height="476" rx="38" fill="none" stroke="rgba(42,36,31,0.06)" strokeWidth="1" />
 
         {/* title card area (copy sits outside in HTML) */}
-        <rect x={34} y={34} width={270} height={70} rx={16} fill="rgba(255,255,255,0.5)" />
-        <rect x={34} y={34} width={6} height={70} rx={3} fill="#c8694f" />
+        <rect x={34} y={34} width="270" height="70" rx="16" fill="rgba(255,255,255,0.5)" />
+        <rect x={34} y={34} width="6" height="70" rx="3" fill="#c8694f" />
 
         {/* stations row */}
-        <g transform="translate(155, 100)">
+        <g transform="translate(150, 70)">
           <StationRender time="09:30" room="Kitchen" accent="coral" />
         </g>
-        <g transform="translate(330, 85)">
+        <g transform="translate(350, 55)">
           <StationRender time="10:15" room="Hallway" accent="teal" dispensing />
         </g>
-        <g transform="translate(505, 100)">
+        <g transform="translate(550, 70)">
           <StationRender time="11:00" room="Living room" accent="sun" />
         </g>
 
         {/* bowl under dispensing station */}
-        <g transform="translate(330, 258)" filter="url(#hero-shadow)">
+        <g transform="translate(350, 290)" filter="url(#hero-shadow)">
           {/* bowl shadow */}
-          <ellipse cx={0} cy={70} rx={52} ry={10} fill="#2a241f" opacity="0.09" />
+          <ellipse cx={0} cy="78" rx="56" ry="10" fill="#2a241f" opacity="0.09" />
           {/* bowl */}
-          <ellipse cx={0} cy={60} rx={56} ry={34} fill="#fbf7ee" stroke="#d9c7ae" strokeWidth="2.5" />
-          <ellipse cx={0} cy={56} rx={50} ry={28} fill="#fffdf8" />
-          <ellipse cx={0} cy={42} rx={44} ry={6} fill="rgba(42,36,31,0.06)" />
+          <ellipse cx={0} cy="68" rx="60" ry="38" fill="#fbf7ee" stroke="#d9c7ae" strokeWidth="3" />
+          <ellipse cx={0} cy="64" rx="54" ry="32" fill="#fffdf8" />
+          <ellipse cx={0} cy="50" rx="48" ry="6" fill="rgba(42,36,31,0.06)" />
           {/* kibble in bowl */}
-          <circle cx={-20} cy={34} r={4.5} fill="#c8694f" />
-          <circle cx={-8} cy={28} r={4} fill="#e89575" />
-          <circle cx={6} cy={36} r={4.5} fill="#c8694f" />
-          <circle cx={18} cy={30} r={4} fill="#e89575" />
-          <circle cx={-2} cy={42} r={4.5} fill="#c8694f" />
-          <circle cx={22} cy={44} r={4} fill="#e89575" />
-          <circle cx={-28} cy={44} r={3.5} fill="#c8694f" />
-          <circle cx={30} cy={46} r={3.5} fill="#c8694f" />
-          <text x={0} y={86} textAnchor="middle" fontSize="10.5" fontWeight="600" letterSpacing="0.12em" style={{ textTransform: 'uppercase' }} fill="#9a8e80">
+          <circle cx={-22} cy="38" r="5" fill="#c8694f" />
+          <circle cx={-10} cy="32" r="4.5" fill="#e89575" />
+          <circle cx={2} cy="40" r="5" fill="#c8694f" />
+          <circle cx={14} cy="34" r="4.5" fill="#e89575" />
+          <circle cx={-4} cy="46" r="5" fill="#c8694f" />
+          <circle cx={18} cy="48" r="4.5" fill="#e89575" />
+          <circle cx={-26} cy="48" r="4" fill="#c8694f" />
+          <circle cx={28} cy="50" r="4" fill="#c8694f" />
+          <text x={0} y="94" textAnchor="middle" fontSize="10.5" fontWeight="600" letterSpacing="0.12em" style={{ textTransform: 'uppercase' }} fill="#9a8e80">
             Fresh portion
           </text>
         </g>
 
         {/* dog beside bowl */}
-        <g transform="translate(450, 260)" filter="url(#hero-shadow)">
+        <g transform="translate(500, 300)" filter="url(#hero-shadow)">
           {/* sitting shadow */}
-          <ellipse cx={0} cy={90} rx={52} ry={10} fill="#2a241f" opacity="0.08" />
+          <ellipse cx={0} cy="96" rx="50" ry="10" fill="#2a241f" opacity="0.08" />
+
           {/* body */}
-          <path d="M-22 62c0 20-18 28-28 28s-28 -8 -28 -28c0-12 14-24 28-24s28 12 28 24z" fill="#f2a65a" />
-          <path d="M-22 62c0 10-14 14-22 14s-22 -4 -22 -14c0-6 8-14 22-14s22 8 22 14z" fill="#e89575" opacity="0.9" />
+          <path d="M-26 70 C-20 70 -24 76 -28 86 C-32 96 -22 106 -14 100 C-6 94 -4 82 -8 74 C-16 68 -26 68 -26 70 Z" fill="#f4c28a" />
+          <path d="M-26 70 C-16 70 -20 76 -24 86 C-28 96 -18 106 -10 100 C-2 94 0 82 -6 74 C-14 68 -22 68 -26 70 Z" fill="#e89575" opacity="0.85" />
+
           {/* neck/chest */}
-          <ellipse cx={-26} cy={56} rx={16} ry={14} fill="#fbf7ee" />
+          <ellipse cx={-12} cy="66" rx="18" ry="14" fill="#fbf7ee" />
+
           {/* head */}
-          <ellipse cx={-36} cy={30} rx={28} ry={24} fill="#f2a65a" />
-          <ellipse cx={-40} cy={24} rx={22} ry={18} fill="#e89575" />
-          {/* floppy dog ears (hang down, not pointy cat ears) */}
-          <ellipse cx={-54} cy={22} rx={10} ry={18} fill="#e89575" transform="rotate(-15 -54 22)" />
-          <ellipse cx={-30} cy={22} rx={10} ry={18} fill="#e89575" transform="rotate(15 -30 22)" />
+          <ellipse cx={-20} cy="36" rx="28" ry="24" fill="#f4c28a" />
+          <ellipse cx={-24} cy="30" rx="22" ry="18" fill="#e89575" />
+
+          {/* floppy ears */}
+          <path d="M-42 28 Q-50 18 -44 46 Q-40 56 -34 46 Q-36 36 -42 28 Z" fill="#e89575" />
+          <path d="M-44 30 Q-48 22 -42 42 Q-38 52 -32 42 Q-34 34 -44 30 Z" fill="#f4c28a" opacity="0.7" />
+          <path d="M-4 28 Q4 18 -2 46 Q2 56 8 46 Q6 36 -4 28 Z" fill="#e89575" />
+          <path d="M-6 30 Q-2 22 2 42 Q6 52 10 42 Q8 34 -6 30 Z" fill="#f4c28a" opacity="0.7" />
+
           {/* inner ears */}
-          <ellipse cx={-54} cy={22} rx={5} ry={9} fill="#f2a65a" transform="rotate(-15 -54 22)" />
-          <ellipse cx={-30} cy={22} rx={5} ry={9} fill="#f2a65a" transform="rotate(15 -30 22)" />
-          {/* longer dog muzzle */}
-          <ellipse cx={-50} cy={36} rx={12} ry={10} fill="#fbf7ee" />
-          <path d="M-50 44c-2 2 -4 2 -6 2s-4 0 -6 -2" stroke="#2e211d" strokeWidth="2" strokeLinecap="round" fill="none" />
-          {/* eyes - softer, dog-like */}
-          <circle cx={-44} cy={26} r={3} fill="#2e211d" />
-          <circle cx={-38} cy={26} r={3} fill="#2e211d" />
-          <circle cx={-45} cy={25} r={1.2} fill="#fffdf7" opacity="0.6" />
-          <circle cx={-39} cy={25} r={1.2} fill="#fffdf7" opacity="0.6" />
-          {/* nose - dog nose */}
-          <ellipse cx={-54} cy={34} rx={4} ry={3} fill="#2e211d" />
-          {/* happy open mouth */}
-          <path d="M-52 42c0 3 5 3 5 0z" fill="#e5988b" />
+          <ellipse cx={-42} cy="38" rx="7" ry="9" fill="#f6d19a" transform="rotate(-15 -42 38)" />
+          <ellipse cx={2} cy="38" rx="7" ry="9" fill="#f6d19a" transform="rotate(15 2 38)" />
+
+          {/* muzzle */}
+          <ellipse cx={-26} cy="44" rx="16" ry="12" fill="#f9e3c8" />
+          <ellipse cx={-26} cy="42" rx="10" ry="7" fill="#fffdf8" opacity="0.8" />
+
+          {/* nose */}
+          <ellipse cx={-30} cy="42" rx="5" ry="4" fill="#4a3728" />
+
+          {/* smile */}
+          <path d="M-32 48 Q-26 54 -20 48" stroke="#4a3728" strokeWidth="2" strokeLinecap="round" fill="none" />
+
+          {/* eyes */}
+          <circle cx={-34} cy="32" r="4" fill="#3e2723" />
+          <circle cx={-18} cy="32" r="4" fill="#3e2723" />
+          <circle cx={-35} cy="31" r="1.5" fill="#ffffff" opacity="0.8" />
+          <circle cx={-19} cy="31" r="1.5" fill="#ffffff" opacity="0.8" />
+
           {/* collar */}
-          <ellipse cx={-36} cy={48} rx={18} ry={7} fill="#c8694f" />
-          <circle cx={-36} cy={48} r={3} fill="#fffdf7" />
+          <ellipse cx={-20} cy="52" rx="20" ry="7" fill="#c8694f" />
+          <circle cx={-20} cy="52" r="3" fill="#fffdf8" />
+
           {/* front paws */}
-          <ellipse cx={-46} cy={64} rx={8} ry={6} fill="#e89575" />
-          <ellipse cx={-28} cy={64} rx={8} ry={6} fill="#e89575" />
+          <ellipse cx={-30} cy="68" rx="10" ry="7" fill="#f9e3c8" />
+          <ellipse cx={-10} cy="68" rx="10" ry="7" fill="#f9e3c8" />
+
           {/* tail */}
-          <path d="M-58 46c-8 8 -12 16 -12 26" stroke="#e89575" strokeWidth="6" strokeLinecap="round" fill="none" />
-          {/* label */}
-          <text x={0} y={112} textAnchor="middle" fontSize="10" fontWeight="600" letterSpacing="0.12em" style={{ textTransform: 'uppercase' }} fill="#9a8e80">
-            Waiting for the drop
-          </text>
+          <path d="M-46 44 Q-56 36 -58 52" stroke="#e89575" strokeWidth="5" strokeLinecap="round" fill="none" />
         </g>
 
         {/* soft glow behind bowl */}
-        <ellipse cx={330} cy={278} rx={86} ry={46} fill="url(#hero-bowl-glow)" />
+        <ellipse cx={350} cy="308" rx="90" ry="50" fill="url(#hero-bowl-glow)" />
       </svg>
-      <DogMascot size={100} className="hero-dog" title="The SniffQuest dog waiting for its food" />
     </div>
   );
 }

@@ -836,15 +836,6 @@ svg {
   margin-inline: auto;
 }
 
-.hero-dog {
-  position: absolute;
-  bottom: 10px;
-  right: 8%;
-  width: 100px;
-  height: 100px;
-  filter: drop-shadow(0 8px 16px rgba(42, 36, 31, 0.12));
-}
-
 /* illustration content spacing handled inside SVG viewBox */
 
 .station {
