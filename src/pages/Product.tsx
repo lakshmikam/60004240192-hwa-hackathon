@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import DogMascot from '../components/DogMascot';
 import StationArt from '../components/StationArt';
+import ProductConcept from '../components/ProductConcept';
 import { KITS } from '../data/kits';
 import { formatPrice } from '../lib/format';
 import { useCart } from '../context/CartContext';
@@ -81,25 +81,7 @@ export default function Product() {
           </nav>
 
           <div className="product-grid">
-            <div className="product-visual">
-              <span className="product-visual-label">
-                Product concept · Starter Quest
-              </span>
-              <div className="product-dog">
-                <DogMascot
-                  size={210}
-                  title="The SniffQuest cartoon dog mascot"
-                />
-              </div>
-              <div className="product-stations" aria-hidden="true">
-                {[1, 2, 3].map((number) => (
-                  <div className="product-station" key={number}>
-                    <StationArt number={number} size={76} />
-                    <span>Station {number}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <ProductConcept />
 
             <div className="product-info">
               <span className="eyebrow">
