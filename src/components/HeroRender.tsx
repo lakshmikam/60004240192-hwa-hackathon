@@ -128,7 +128,6 @@ export default function HeroRender() {
 
         {/* title card area (copy sits outside in HTML) */}
         <rect x={34} y={34} width="270" height="70" rx="16" fill="rgba(255,255,255,0.5)" />
-        <rect x={34} y={34} width="6" height="70" rx="3" fill="#c8694f" />
 
         {/* stations row */}
         <g transform="translate(150, 70)">
