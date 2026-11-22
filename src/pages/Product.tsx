@@ -1,11 +1,16 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import DogMascot from '../components/DogMascot';
 import StationArt from '../components/StationArt';
 import { KITS } from '../data/kits';
 import { formatPrice } from '../lib/format';
+import { useCart } from '../context/CartContext';
 import {
   ArrowRightIcon,
+  CheckIcon,
+  MinusIcon,
   PawIcon,
+  PlusIcon,
 } from '../components/Icons';
 
 const DROPS = [
@@ -29,8 +34,41 @@ const DROPS = [
   },
 ];
 
+const FEATURES = [
+  {
+    title: 'Timer controls',
+    copy: 'Set a different release time for each of the three stations. Space the drops across your time away so your dog gets three separate sniff-and-search moments instead of one meal in one spot.',
+  },
+  {
+    title: 'Food compatible',
+    copy: 'Uses your dog’s usual dry or wet food — no special diet required. Each station holds one portion, so you stay within their normal daily meal.',
+  },
+  {
+    title: 'Easy to clean',
+    copy: 'Removable food cups and a wipe-clean body make resetting between quests quick. All food-contact parts are dishwasher safe.',
+  },
+  {
+    title: 'Power & dimensions',
+    copy: 'Each station runs on a long-life coin cell (included). Compact footprint fits on a floor or low shelf — about the size of a large dog bowl.',
+  },
+];
+
+const DOUBLE = KITS[1];
+const TRIPLE = KITS[2];
+
 export default function Product() {
   const starter = KITS[0];
+  const { add } = useCart();
+  const [qty, setQty] = useState(1);
+  const [added, setAdded] = useState(false);
+
+  const clampQty = (value: number) => Math.max(1, Math.min(9, value));
+
+  const handleAdd = () => {
+    add(starter.id, qty);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1800);
+  };
 
   return (
     <>
@@ -78,6 +116,48 @@ export default function Product() {
                 <span className="price-sub">One quest · 3 stations</span>
               </div>
 
+              <div className="qty-picker" role="group" aria-label="Quantity">
+                <button
+                  type="button"
+                  aria-label="Decrease quantity"
+                  onClick={() => setQty((v) => clampQty(v - 1))}
+                  disabled={qty <= 1}
+                >
+                  <MinusIcon size={16} />
+                </button>
+                <span className="qty-value" aria-live="polite">
+                  {qty}
+                </span>
+                <button
+                  type="button"
+                  aria-label="Increase quantity"
+                  onClick={() => setQty((v) => clampQty(v + 1))}
+                  disabled={qty >= 9}
+                >
+                  <PlusIcon size={16} />
+                </button>
+              </div>
+
+              <button
+                type="button"
+                className={`btn btn-primary btn-block ${added ? 'is-added' : ''}`}
+                onClick={handleAdd}
+              >
+                {added ? (
+                  <>
+                    <CheckIcon size={18} /> Added to cart
+                  </>
+                ) : (
+                  <>
+                    Add to cart <ArrowRightIcon size={17} />
+                  </>
+                )}
+              </button>
+              <p className="muted-note">
+                {qty > 1 ? `${qty} Starter Quests added to your cart.` : ''}
+                Demo store — no payment is taken.
+              </p>
+
               <ul className="product-points">
                 <li>3 timed stations per quest</li>
                 <li>Separate release time for each</li>
@@ -85,13 +165,50 @@ export default function Product() {
                 <li>Removable food cups</li>
               </ul>
 
-              <div className="product-actions">
-                <Link className="btn btn-primary" to="/kits">
-                  Shop kits <ArrowRightIcon size={17} />
-                </Link>
-                <Link className="link-arrow" to="/demo">
-                  Try the demo
-                </Link>
+              <div className="feature-grid">
+                {FEATURES.map((feature) => (
+                  <article className="feature-card" key={feature.title}>
+                    <h4>{feature.title}</h4>
+                    <p>{feature.copy}</p>
+                  </article>
+                ))}
+              </div>
+
+              <div className="recommend-callout">
+                <span className="eyebrow">Our recommendation</span>
+                <h3>Start with the Starter Quest.</h3>
+                <p>
+                  One three-station trail is the best way to introduce your dog
+                  to timed feeding. You can add Double or Triple Quest kits
+                  later for more trails or more rooms.
+                </p>
+              </div>
+
+              <div className="extra-kits">
+                <span className="eyebrow">Need more trails?</span>
+                <h3>Extra kits explained.</h3>
+                <div className="extra-kit-row">
+                  <div>
+                    <strong>{DOUBLE.name}</strong>
+                    <p>
+                      {DOUBLE.stations} stations — two full trails. Ideal for
+                      bigger homes or rotating the trail between rooms.
+                    </p>
+                    <span className="extra-price">{formatPrice(DOUBLE.price)}</span>
+                  </div>
+                  <div>
+                    <strong>{TRIPLE.name}</strong>
+                    <p>
+                      {TRIPLE.stations} stations — three full trails. Best for
+                      multi-dog homes or back-to-back days away.
+                    </p>
+                    <span className="extra-price">{formatPrice(TRIPLE.price)}</span>
+                  </div>
+                </div>
+                <p className="muted-note">
+                  Prices are demo prices. All kits are simulated — no real
+                  product is sold and no payment is taken.
+                </p>
               </div>
             </div>
           </div>

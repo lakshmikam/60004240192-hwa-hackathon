@@ -13,18 +13,22 @@ import {
   SparkleIcon,
 } from '../components/Icons';
 
-const QUEST = [
-  { id: 1, room: 'Kitchen corner', offset: 30, trail: 20 },
-  { id: 2, room: 'Hallway rug', offset: 75, trail: 50 },
-  { id: 3, room: 'Living room', offset: 120, trail: 80 },
-];
-
 const QUEST_MINUTES = 120;
 const DEMO_SECONDS = 18;
+
+const DEFAULT_OFFSETS = [30, 75, 120];
+const ROOMS = ['Kitchen corner', 'Hallway rug', 'Living room'];
 
 export default function Demo() {
   const [elapsed, setElapsed] = useState(0);
   const [running, setRunning] = useState(false);
+  const [offsets, setOffsets] = useState([...DEFAULT_OFFSETS]);
+
+  const QUEST = [
+    { id: 1, room: ROOMS[0], offset: offsets[0], trail: 20 },
+    { id: 2, room: ROOMS[1], offset: offsets[1], trail: 50 },
+    { id: 3, room: ROOMS[2], offset: offsets[2], trail: 80 },
+  ];
 
   useEffect(() => {
     if (!running) return;
@@ -226,6 +230,47 @@ export default function Demo() {
               >
                 Reset
               </button>
+            </div>
+
+            <div className="time-settings">
+              <span className="time-settings-label">Set release times</span>
+              <div className="time-inputs">
+                {QUEST.map((station) => (
+                  <div className="time-input" key={station.id}>
+                    <label>
+                      Station {station.id} ({station.room})
+                    </label>
+                    <input
+                      type="number"
+                      min={0}
+                      max={QUEST_MINUTES}
+                      step={5}
+                      value={station.offset}
+                      onChange={(event) => {
+                        const next = [...offsets];
+                        next[station.id - 1] = Math.min(
+                          QUEST_MINUTES,
+                          Math.max(0, Number(event.target.value) || 0)
+                        );
+                        setOffsets(next);
+                      }}
+                    />
+                    <span className="time-unit">min from start</span>
+                  </div>
+                ))}
+                <button
+                  type="button"
+                  className="text-link"
+                  onClick={() => setOffsets([...DEFAULT_OFFSETS])}
+                  disabled={
+                    offsets[0] === DEFAULT_OFFSETS[0] &&
+                    offsets[1] === DEFAULT_OFFSETS[1] &&
+                    offsets[2] === DEFAULT_OFFSETS[2]
+                  }
+                >
+                  Reset to default
+                </button>
+              </div>
             </div>
 
             <p className="demo-live" aria-live="polite">

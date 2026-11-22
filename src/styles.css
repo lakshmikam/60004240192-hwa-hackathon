@@ -1755,6 +1755,150 @@ svg {
   gap: 20px;
 }
 
+/* Quantity picker */
+.qty-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 2px;
+  background: var(--paper);
+  margin: 14px 0 10px;
+}
+
+.qty-picker button {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--ink);
+  transition: background 0.15s;
+}
+
+.qty-picker button:hover:not(:disabled) {
+  background: var(--ivory);
+}
+
+.qty-picker button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.qty-value {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Feature cards */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.feature-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.feature-card h4 {
+  font-size: 1.05rem;
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+
+.feature-card p {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Recommendation callout */
+.recommend-callout {
+  background: var(--blush);
+  border: 1px solid #ecd5ca;
+  border-radius: var(--radius);
+  padding: 18px;
+  margin: 22px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recommend-callout h3 {
+  font-size: 1.15rem;
+  margin: 0;
+  color: var(--ink);
+}
+
+.recommend-callout p {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Extra kits */
+.extra-kits {
+  margin: 22px 0;
+}
+
+.extra-kits h3 {
+  font-size: 1.15rem;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.extra-kit-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.extra-kit-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+
+.extra-kit-row strong {
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.extra-kit-row p {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.extra-price {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--coral-deep);
+  margin-top: 6px;
+}
+
 .product-detail-grid {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
@@ -2554,6 +2698,66 @@ svg {
   margin-top: 18px;
 }
 
+.time-settings {
+  margin-top: 18px;
+  padding: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.time-settings-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.time-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-end;
+}
+
+.time-input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.time-input label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.time-input input {
+  width: 70px;
+  min-height: 36px;
+  padding: 6px 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--ivory);
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.time-input input:focus {
+  outline: none;
+  border-color: var(--coral);
+}
+
+.time-unit {
+  font-size: 10px;
+  color: var(--ink-faint);
+}
+
 .demo-live {
   margin-top: 14px;
   font-size: 12.5px;
@@ -3017,6 +3221,53 @@ svg {
   font-size: 11.5px;
   font-weight: 400;
   color: var(--ink-faint);
+}
+
+.setup-guide {
+  margin-top: 26px;
+  padding: 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.setup-guide .eyebrow {
+  color: var(--coral-deep);
+}
+
+.setup-guide h2 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.setup-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.setup-steps li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.setup-steps li strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.setup-steps li span {
+  color: var(--ink-soft);
 }
 
 .confirm-actions {

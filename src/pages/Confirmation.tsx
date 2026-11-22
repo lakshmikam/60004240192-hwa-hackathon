@@ -119,6 +119,33 @@ export default function Confirmation() {
           </div>
         </div>
 
+        <div className="setup-guide">
+          <span className="eyebrow">Setup guide</span>
+          <h2>Getting your first quest ready.</h2>
+          <ol className="setup-steps">
+            <li>
+              <strong>Place the stations.</strong>
+              <span>Put one in the kitchen, hallway, and living room — wherever your dog’s nose will find them.</span>
+            </li>
+            <li>
+              <strong>Add a portion to each.</strong>
+              <span>Use your dog’s usual food. Across all three stations, keep to their normal meal size.</span>
+            </li>
+            <li>
+              <strong>Set the release times.</strong>
+              <span>Space the drops across your time away — for example 09:30, 10:15 and 11:00.</span>
+            </li>
+            <li>
+              <strong>Let your dog explore.</strong>
+              <span>Supervise the first few uses and adjust portions with your vet’s guidance.</span>
+            </li>
+          </ol>
+          <p className="muted-note">
+            SniffQuest is a food puzzle concept — not a medical device, training
+            programme, or behaviour treatment.
+          </p>
+        </div>
+
         <div className="confirm-actions">
           <Link className="btn btn-primary" to="/kits">
             Start a new test order <ArrowRightIcon size={17} />
