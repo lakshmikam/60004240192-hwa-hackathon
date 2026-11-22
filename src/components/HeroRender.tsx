@@ -128,37 +128,45 @@ export default function HeroRender() {
         </g>
 
         {/* dog beside bowl */}
-        <g transform="translate(440, 270)" filter="url(#hero-shadow)">
+        <g transform="translate(450, 260)" filter="url(#hero-shadow)">
           {/* sitting shadow */}
-          <ellipse cx={0} cy={88} rx={46} ry={9} fill="#2a241f" opacity="0.08" />
+          <ellipse cx={0} cy={90} rx={52} ry={10} fill="#2a241f" opacity="0.08" />
           {/* body */}
-          <path d="M-24 60c0 22-18 30-30 30s-30 -8 -30 -30c0-14 14-26 30-26s30 12 30 26z" fill="#f2a65a" />
-          <path d="M-24 60c0 10-14 14-22 14s-22 -4 -22 -14c0-6 8-14 22-14s22 8 22 14z" fill="#e89575" opacity="0.9" />
+          <path d="M-22 62c0 20-18 28-28 28s-28 -8 -28 -28c0-12 14-24 28-24s28 12 28 24z" fill="#f2a65a" />
+          <path d="M-22 62c0 10-14 14-22 14s-22 -4 -22 -14c0-6 8-14 22-14s22 8 22 14z" fill="#e89575" opacity="0.9" />
+          {/* neck/chest */}
+          <ellipse cx={-26} cy={56} rx={16} ry={14} fill="#fbf7ee" />
           {/* head */}
-          <ellipse cx={-30} cy={28} rx={26} ry={22} fill="#f2a65a" />
-          <ellipse cx={-34} cy={22} rx={20} ry={16} fill="#e89575" />
-          {/* ears */}
-          <ellipse cx={-44} cy={16} rx={8} ry={14} fill="#e89575" transform="rotate(-20 -44 16)" />
-          <ellipse cx={-22} cy={16} rx={8} ry={14} fill="#e89575" transform="rotate(20 -22 16)" />
-          {/* eyes */}
-          <circle cx={-38} cy={24} r={3.5} fill="#2e211d" />
-          <circle cx={-24} cy={24} r={3.5} fill="#2e211d" />
-          <circle cx={-39} cy={23} r={1.4} fill="#fffdf7" opacity="0.6" />
-          <circle cx={-25} cy={23} r={1.4} fill="#fffdf7" opacity="0.6" />
-          {/* nose */}
-          <ellipse cx={-31} cy={32} rx={3} ry={2.5} fill="#2e211d" />
-          {/* smile */}
-          <path d="M-35 38c0 4 6 4 6 0" stroke="#2e211d" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+          <ellipse cx={-36} cy={30} rx={28} ry={24} fill="#f2a65a" />
+          <ellipse cx={-40} cy={24} rx={22} ry={18} fill="#e89575" />
+          {/* floppy dog ears (hang down, not pointy cat ears) */}
+          <ellipse cx={-54} cy={22} rx={10} ry={18} fill="#e89575" transform="rotate(-15 -54 22)" />
+          <ellipse cx={-30} cy={22} rx={10} ry={18} fill="#e89575" transform="rotate(15 -30 22)" />
+          {/* inner ears */}
+          <ellipse cx={-54} cy={22} rx={5} ry={9} fill="#f2a65a" transform="rotate(-15 -54 22)" />
+          <ellipse cx={-30} cy={22} rx={5} ry={9} fill="#f2a65a" transform="rotate(15 -30 22)" />
+          {/* longer dog muzzle */}
+          <ellipse cx={-50} cy={36} rx={12} ry={10} fill="#fbf7ee" />
+          <path d="M-50 44c-2 2 -4 2 -6 2s-4 0 -6 -2" stroke="#2e211d" strokeWidth="2" strokeLinecap="round" fill="none" />
+          {/* eyes - softer, dog-like */}
+          <circle cx={-44} cy={26} r={3} fill="#2e211d" />
+          <circle cx={-38} cy={26} r={3} fill="#2e211d" />
+          <circle cx={-45} cy={25} r={1.2} fill="#fffdf7" opacity="0.6" />
+          <circle cx={-39} cy={25} r={1.2} fill="#fffdf7" opacity="0.6" />
+          {/* nose - dog nose */}
+          <ellipse cx={-54} cy={34} rx={4} ry={3} fill="#2e211d" />
+          {/* happy open mouth */}
+          <path d="M-52 42c0 3 5 3 5 0z" fill="#e5988b" />
           {/* collar */}
-          <ellipse cx={-30} cy={42} rx={16} ry={6} fill="#c8694f" />
-          <circle cx={-30} cy={42} r={2.5} fill="#fffdf7" />
+          <ellipse cx={-36} cy={48} rx={18} ry={7} fill="#c8694f" />
+          <circle cx={-36} cy={48} r={3} fill="#fffdf7" />
           {/* front paws */}
-          <ellipse cx={-40} cy={58} rx={7} ry={5} fill="#e89575" />
-          <ellipse cx={-22} cy={58} rx={7} ry={5} fill="#e89575" />
+          <ellipse cx={-46} cy={64} rx={8} ry={6} fill="#e89575" />
+          <ellipse cx={-28} cy={64} rx={8} ry={6} fill="#e89575" />
           {/* tail */}
-          <path d="M-56 44c-6 6 -10 14 -10 22" stroke="#e89575" strokeWidth="5" strokeLinecap="round" fill="none" />
+          <path d="M-58 46c-8 8 -12 16 -12 26" stroke="#e89575" strokeWidth="6" strokeLinecap="round" fill="none" />
           {/* label */}
-          <text x={0} y={108} textAnchor="middle" fontSize="10" fontWeight="600" letterSpacing="0.12em" style={{ textTransform: 'uppercase' }} fill="#9a8e80">
+          <text x={0} y={112} textAnchor="middle" fontSize="10" fontWeight="600" letterSpacing="0.12em" style={{ textTransform: 'uppercase' }} fill="#9a8e80">
             Waiting for the drop
           </text>
         </g>
