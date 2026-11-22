@@ -22,116 +22,135 @@ export default function DogMascot({
       aria-hidden={title ? undefined : true}
       focusable="false"
     >
-      <ellipse cx="100" cy="181" rx="58" ry="10" fill="#2a241f" opacity=".08" />
+      <defs>
+        <linearGradient id="dogBodyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#f4c28a" />
+          <stop offset="1" stopColor="#e89575" />
+        </linearGradient>
+        <linearGradient id="dogHeadGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#f6d19a" />
+          <stop offset="1" stopColor="#e89575" />
+        </linearGradient>
+      </defs>
+
+      {/* Ground shadow */}
+      <ellipse cx="100" cy="182" rx="52" ry="12" fill="#2a241f" opacity="0.1" />
+
+      {/* Body (sitting) */}
       <path
-        d="M55 70C36 72 23 90 26 112c2 17 14 25 25 17 10-7 10-25 13-39z"
-        fill="#C46A45"
+        d="M42 120 C32 120 28 130 34 142 C40 154 56 158 68 152 C80 146 86 136 82 126 C78 116 68 116 58 122 C50 128 46 124 42 120 Z"
+        fill="url(#dogBodyGrad)"
       />
       <path
-        d="M145 70c19 2 32 20 29 42-2 17-14 25-25 17-10-7-10-25-13-39z"
-        fill="#C46A45"
+        d="M112 120 C122 120 126 130 120 142 C114 154 98 158 86 152 C74 146 68 136 72 126 C76 116 86 116 96 122 C104 128 108 124 112 120 Z"
+        fill="#e89575"
+        opacity="0.7"
       />
+
+      {/* Back leg */}
+      <ellipse cx="62" cy="156" rx="12" ry="8" fill="#d4a373" />
+
+      {/* Tail */}
       <path
-        d="M60 76c-11 5-17 17-16 30 1 8 6 12 11 8 5-4 5-13 6-22z"
-        fill="#A95636"
-        opacity=".45"
-      />
-      <path
-        d="M140 76c11 5 17 17 16 30-1 8-6 12-11 8-5-4-5-13-6-22z"
-        fill="#A95636"
-        opacity=".45"
-      />
-      <path
-        d="M64 142c8-16 24-24 36-24s28 8 36 24c6 11 2 24-10 28-16 5-36 5-52 0-12-4-16-17-10-28z"
-        fill="#F2A65A"
-      />
-      <ellipse cx="100" cy="96" rx="57" ry="53" fill="#F2A65A" />
-      <path
-        d="M57 76c6-22 28-35 54-34-16 5-29 17-35 33z"
-        fill="#E39145"
-        opacity=".7"
-      />
-      {mood === 'sniffing' ? (
-        <>
-          <path
-            d="M68 94c4-5 10-5 14 0"
-            stroke="#22333B"
-            strokeWidth="4.5"
-            strokeLinecap="round"
-            fill="none"
-          />
-          <path
-            d="M118 94c4-5 10-5 14 0"
-            stroke="#22333B"
-            strokeWidth="4.5"
-            strokeLinecap="round"
-            fill="none"
-          />
-        </>
-      ) : (
-        <>
-          <circle cx="75" cy="93" r="7" fill="#22333B" />
-          <circle cx="125" cy="93" r="7" fill="#22333B" />
-          <circle cx="77.5" cy="90.5" r="2.6" fill="#FFFDF7" />
-          <circle cx="127.5" cy="90.5" r="2.6" fill="#FFFDF7" />
-        </>
-      )}
-      <path
-        d="M63 80c4-4 11-5 16-3"
-        stroke="#a44f38"
-        strokeWidth="4"
+        d="M70 128 Q85 118 92 126"
+        stroke="#e89575"
+        strokeWidth="6"
         strokeLinecap="round"
         fill="none"
       />
+
+      {/* Head */}
+      <circle cx="100" cy="82" rx="34" ry="30" fill="url(#dogHeadGrad)" />
+
+      {/* Left floppy ear */}
       <path
-        d="M121 77c5-2 12-1 16 3"
-        stroke="#a44f38"
-        strokeWidth="4"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <ellipse cx="100" cy="118" rx="36" ry="28" fill="#FFE3C2" />
-      <ellipse cx="100" cy="107" rx="11" ry="8.5" fill="#2E211D" />
-      <ellipse cx="96" cy="104" rx="3" ry="2" fill="#FFFDF7" opacity=".55" />
-      <path
-        d="M100 116v7"
-        stroke="#2E211D"
-        strokeWidth="4"
-        strokeLinecap="round"
+        d="M72 72 Q60 60 68 90 Q72 100 82 90 Q86 82 78 76 Z"
+        fill="#e89575"
       />
       <path
-        d="M100 123c-6 6-13 5-17 1"
-        stroke="#2E211D"
-        strokeWidth="4"
-        strokeLinecap="round"
-        fill="none"
+        d="M74 76 Q68 66 70 94 Q74 102 84 92 Q88 84 80 78 Z"
+        fill="#d4a373"
+        opacity="0.6"
+      />
+
+      {/* Right floppy ear */}
+      <path
+        d="M128 72 Q140 60 132 90 Q128 100 118 90 Q114 82 122 76 Z"
+        fill="#e89575"
       />
       <path
-        d="M100 123c6 6 13 5 17 1"
-        stroke="#2E211D"
-        strokeWidth="4"
+        d="M126 76 Q132 66 130 94 Q126 102 116 92 Q112 84 120 78 Z"
+        fill="#d4a373"
+        opacity="0.6"
+      />
+
+      {/* Inner ears */}
+      <ellipse cx="76" cy="86" rx="8" ry="10" fill="#f6d19a" transform="rotate(-15 76 86)" />
+      <ellipse cx="124" cy="86" rx="8" ry="10" fill="#f6d19a" transform="rotate(15 124 86)" />
+
+      {/* Snout / muzzle */}
+      <ellipse cx="100" cy="104" rx="20" ry="16" fill="#f9e3c8" />
+      <ellipse cx="100" cy="100" rx="14" ry="10" fill="#fffdf8" opacity="0.8" />
+
+      {/* Nose */}
+      <ellipse cx="100" cy="110" rx="7" ry="5" fill="#4a3728" />
+
+      {/* Mouth / smile */}
+      <path
+        d="M92 116 Q100 124 108 116"
+        stroke="#4a3728"
+        strokeWidth="2.5"
         strokeLinecap="round"
         fill="none"
       />
       {mood === 'happy' && (
-        <path d="M93 130c0 8 14 8 14 0z" fill="#e5988b" />
+        <path d="M96 122 Q100 128 104 122" stroke="#e5988b" strokeWidth="3" strokeLinecap="round" fill="none" />
       )}
-      <path
-        d="M66 144c20 12 48 12 68 0"
-        stroke="#a44f38"
-        strokeWidth="11"
-        strokeLinecap="round"
-        fill="none"
-      />
-      <circle
-        cx="100"
-        cy="154"
-        r="9"
-        fill="#f3ded4"
-        stroke="#a44f38"
-        strokeWidth="3"
-      />
-      <circle cx="98" cy="152" r="2" fill="#FFFDF7" opacity=".8" />
+
+      {/* Eyes */}
+      <circle cx="86" cy="76" r="5" fill="#3e2723" />
+      <circle cx="114" cy="76" r="5" fill="#3e2723" />
+      <circle cx="87" cy="74.5" r="2" fill="#ffffff" opacity="0.8" />
+      <circle cx="115" cy="74.5" r="2" fill="#ffffff" opacity="0.8" />
+
+      {/* Eyebrows */}
+      <path d="M82 70 Q86 66 90 70" stroke="#4a3728" strokeWidth="2" strokeLinecap="round" fill="none" />
+      <path d="M110 70 Q106 66 102 70" stroke="#4a3728" strokeWidth="2" strokeLinecap="round" fill="none" />
+
+      {/* Cheeks */}
+      <ellipse cx="74" cy="100" rx="5" ry="4" fill="#f0b49a" opacity="0.6" />
+      <ellipse cx="126" cy="100" rx="5" ry="4" fill="#f0b49a" opacity="0.6" />
+
+      {/* Collar */}
+      <ellipse cx="100" cy="122" rx="24" ry="8" fill="#c8694f" />
+      <circle cx="100" cy="122" r="4" fill="#fffdf8" />
+
+      {/* Chest patch */}
+      <ellipse cx="100" cy="140" rx="16" ry="10" fill="#f9e3c8" opacity="0.6" />
+
+      {/* Front paws */}
+      <ellipse cx="88" cy="156" rx="10" ry="7" fill="#f9e3c8" />
+      <ellipse cx="112" cy="156" rx="10" ry="7" fill="#f9e3c8" />
+
+      {/* Sniffing expression */}
+      {mood === 'sniffing' && (
+        <>
+          <path
+            d="M84 82 Q88 88 92 82"
+            stroke="#4a3728"
+            strokeWidth="2"
+            strokeLinecap="round"
+            fill="none"
+          />
+          <path
+            d="M116 82 Q112 88 108 82"
+            stroke="#4a3728"
+            strokeWidth="2"
+            strokeLinecap="round"
+            fill="none"
+          />
+        </>
+      )}
     </svg>
   );
 }
