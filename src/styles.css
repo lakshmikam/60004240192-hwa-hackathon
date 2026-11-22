@@ -1904,6 +1904,58 @@ svg {
   color: var(--ink-soft);
 }
 
+/* Fallback callout */
+.fallback-callout {
+  background: var(--blush);
+  border: 1px solid #ecd5ca;
+  border-radius: var(--radius);
+  padding: 18px;
+  margin: 22px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fallback-callout h3 {
+  font-size: 1.15rem;
+  margin: 0;
+  color: var(--ink);
+}
+
+.fallback-callout p {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.fallback-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fallback-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.fallback-list li strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.fallback-list li span {
+  color: var(--ink-soft);
+}
+
 /* Add to cart feedback */
 .add-feedback {
   display: flex;

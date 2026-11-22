@@ -190,6 +190,39 @@ export default function Product() {
                 </p>
               </div>
 
+              <div className="fallback-callout">
+                <span className="eyebrow">If your dog can’t find a station</span>
+                <h3>Scent leads the way — you’re the backup.</h3>
+                <p>
+                  Each station releases the smell of food when it opens, so your
+                  dog can nose their way to the next one. Start with stations in
+                  plain sight in one room, then move to different rooms as your
+                  dog learns the pattern.
+                </p>
+                <ul className="fallback-list">
+                  <li>
+                    <strong>Supervise the first few uses.</strong>
+                    <span>
+                      You’re there to help, not to let them go hungry.
+                    </span>
+                  </li>
+                  <li>
+                    <strong>Rare cases only.</strong>
+                    <span>
+                      If your dog genuinely can’t locate a station, just make
+                      the food accessible — no stress, no punishment.
+                    </span>
+                  </li>
+                  <li>
+                    <strong>Timer structures opportunity, not access.</strong>
+                    <span>
+                      Food is always available if your dog needs a hand finding
+                      it.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
               <div className="three-device-callout">
                 <span className="eyebrow">Why three stations at once</span>
                 <h3>A treasure hunt — not just a bowl.</h3>
