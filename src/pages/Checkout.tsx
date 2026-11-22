@@ -7,6 +7,7 @@ import type { Customer, Order } from '../types';
 import {
   ArrowLeftIcon,
   LockIcon,
+  PawIcon,
   SparkleIcon,
 } from '../components/Icons';
 
@@ -81,6 +82,18 @@ export default function Checkout() {
     return next;
   };
 
+  const fillExampleDetails = () => {
+    setForm({
+      name: 'Alex Rivera',
+      email: 'alex.rivera@example.com',
+      address: '42 Bark Lane',
+      city: 'Sniffville',
+      postcode: 'SW1A 1AA',
+      country: 'United Kingdom',
+      agree: form.agree, // leave the checkbox as the user set it
+    });
+  };
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const nextErrors = validate();
@@ -128,6 +141,14 @@ export default function Checkout() {
           <Link className="btn btn-primary" to="/cart" style={{ marginTop: 14, display: 'inline-flex', gap: 8, alignItems: 'center' }}>
             <ArrowLeftIcon size={15} /> Back to cart
           </Link>
+          <button
+            type="button"
+            className="btn btn-ghost"
+            onClick={fillExampleDetails}
+            style={{ marginTop: 14, display: 'inline-flex', gap: 8, alignItems: 'center' }}
+          >
+            <PawIcon size={15} /> Fill example details
+          </button>
         </div>
 
         <div className="fill-details-cta">

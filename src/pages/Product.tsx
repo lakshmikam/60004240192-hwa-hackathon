@@ -197,19 +197,13 @@ export default function Product() {
                   <div>
                     <strong>{DOUBLE.name}</strong>
                     <p>{DOUBLE.tagline}</p>
-                    <p>
-                      {DOUBLE.description} Ideal for bigger homes or rotating
-                      the trail between rooms.
-                    </p>
+                    <p>{DOUBLE.description}</p>
                     <span className="extra-price">{formatPrice(DOUBLE.price)}</span>
                   </div>
                   <div>
                     <strong>{TRIPLE.name}</strong>
                     <p>{TRIPLE.tagline}</p>
-                    <p>
-                      {TRIPLE.description} Best for multi-dog homes or
-                      back-to-back days away.
-                    </p>
+                    <p>{TRIPLE.description}</p>
                     <span className="extra-price">{formatPrice(TRIPLE.price)}</span>
                   </div>
                 </div>

@@ -4,7 +4,7 @@ export const KITS: Kit[] = [
   {
     id: 'starter-quest',
     name: 'Starter Quest',
-    tagline: 'One three-station trail.',
+    tagline: '3 stations for first-time buyers.',
     description:
       'The core set: three stations for one timed treasure hunt.',
     stations: 3,
@@ -22,7 +22,7 @@ export const KITS: Kit[] = [
   {
     id: 'double-quest',
     name: 'Double Quest',
-    tagline: 'Two trails, or six stations.',
+    tagline: '6 stations for rotating between rooms.',
     description:
       'Two complete sets for longer days or bigger spaces.',
     stations: 6,
@@ -40,7 +40,7 @@ export const KITS: Kit[] = [
   {
     id: 'triple-quest',
     name: 'Triple Quest',
-    tagline: 'Three trails to rotate.',
+    tagline: '9 stations for spare sets.',
     description:
       'Three complete sets for back-to-back trails and more rooms in play.',
     stations: 9,

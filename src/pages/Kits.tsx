@@ -36,13 +36,15 @@ export default function Kits() {
             </div>
             <ul className="kits-note-list">
               <li>
-                <strong>Starter Quest</strong> — one three-station trail.
+                <strong>Starter Quest</strong> — 3 stations for first-time
+                buyers.
               </li>
               <li>
-                <strong>Double Quest</strong> — two trails, or six stations.
+                <strong>Double Quest</strong> — 6 stations for rotating
+                between rooms.
               </li>
               <li>
-                <strong>Triple Quest</strong> — three trails to rotate.
+                <strong>Triple Quest</strong> — 9 stations for spare sets.
               </li>
             </ul>
           </div>
