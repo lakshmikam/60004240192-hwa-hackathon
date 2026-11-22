@@ -51,7 +51,8 @@ export default function Confirmation() {
         </span>
         <h1>Your demo order is in.</h1>
         <p className="confirm-sub">
-          No payment was taken, nothing was charged, and nothing will ship.
+          Demo order confirmed. No payment was taken, nothing was charged, and
+          nothing will ship.
         </p>
 
         <div className="receipt">
@@ -113,7 +114,7 @@ export default function Confirmation() {
           <div className="receipt-foot">
             <LockIcon size={15} />
             <span>
-              No payment was processed. This receipt is for demonstration only.
+              Demo order receipt — no payment was processed.
             </span>
           </div>
         </div>

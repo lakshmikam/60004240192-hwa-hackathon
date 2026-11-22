@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
-import { CartIcon, CloseIcon, MenuIcon, PawIcon, SparkleIcon } from './Icons';
+import {
+  CartIcon,
+  CloseIcon,
+  MenuIcon,
+  PawIcon,
+  SparkleIcon,
+} from './Icons';
 import { useCart } from '../context/CartContext';
 
 const NAV_LINKS = [
@@ -39,7 +45,7 @@ export default function Layout() {
       <div className="top-bar">
         <div className="container top-bar-inner">
           <SparkleIcon size={14} />
-          <span>Concept store — all products, prices and test orders are simulated.</span>
+          <span>Happy While Away · SniffQuest concept store</span>
         </div>
       </div>
 

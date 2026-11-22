@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import FeederStation from '../components/FeederStation';
+import HeroRender, { StationRender } from '../components/HeroRender';
 import StationArt from '../components/StationArt';
 import KitCard from '../components/KitCard';
 import { KITS } from '../data/kits';
@@ -67,35 +67,17 @@ export default function Home() {
           <figure className="hero-visual">
             <span className="visual-sheen" aria-hidden="true" />
             <div className="visual-top">
-              <span className="visual-label">Product concept render</span>
-              <span className="visual-sub">SniffQuest · Starter Quest</span>
+              <span className="visual-label">Concept render</span>
+              <span className="visual-sub">SniffQuest · three timed stations</span>
             </div>
 
             <div className="render-stage">
-              {STOPS.map((stop, index) => (
-                <div
-                  className={`render-item ${
-                    index === 1 ? 'render-item--featured' : ''
-                  }`}
-                  key={stop.number}
-                >
-                  <span className="render-glow" aria-hidden="true" />
-                  <FeederStation
-                    number={stop.number}
-                    open={stop.number === 2}
-                    size={180}
-                    title={`Concept render of feeder station ${stop.number}`}
-                  />
-                  <span className="render-meta">
-                    <span className="render-time">{stop.time}</span>
-                    <span className="render-room">{stop.room}</span>
-                  </span>
-                </div>
-              ))}
+              <HeroRender />
             </div>
 
             <figcaption className="concept-caption">
-              Concept render: three feeder stations, three release times.
+              Polished concept render: three physical feeder stations, each
+              opening at its own time.
             </figcaption>
           </figure>
         </div>
@@ -153,7 +135,7 @@ export default function Home() {
               </div>
             </div>
             <div className="demo-teaser-visual" aria-hidden="true">
-              <FeederStation number={2} open size={155} />
+              <StationRender room="Hallway rug" time="10:15" accent="teal" />
               <div className="teaser-times">
                 {STOPS.map((stop) => (
                   <span key={stop.number}>

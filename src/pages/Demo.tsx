@@ -97,7 +97,7 @@ export default function Demo() {
             its nose — a two-hour window compressed into 18 seconds.
           </p>
           <span className="demo-chip">
-            Simulation only · no device is connected
+            Interactive demo · 18 seconds
           </span>
         </div>
       </section>
@@ -297,16 +297,6 @@ export default function Demo() {
                   complete.
                 </p>
               )}
-            </div>
-
-            <div className="sim-note">
-              <SparkleIcon size={18} />
-              <p>
-                <strong>This is a simulation.</strong> The times, food drops and
-                dog movement are illustrative. No real feeder is connected.
-                SniffQuest is a food puzzle concept, not a medical or training
-                device.
-              </p>
             </div>
           </aside>
         </div>

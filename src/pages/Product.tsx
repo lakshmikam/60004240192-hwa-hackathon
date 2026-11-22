@@ -6,7 +6,6 @@ import { formatPrice } from '../lib/format';
 import {
   ArrowRightIcon,
   PawIcon,
-  SparkleIcon,
 } from '../components/Icons';
 
 const DROPS = [
@@ -76,7 +75,6 @@ export default function Product() {
 
               <div className="price-row">
                 <strong>{formatPrice(starter.price)}</strong>
-                <span className="demo-chip">demo pricing</span>
                 <span className="price-sub">One quest · 3 stations</span>
               </div>
 
@@ -95,11 +93,6 @@ export default function Product() {
                   Try the demo
                 </Link>
               </div>
-
-              <p className="muted-note">
-                <SparkleIcon size={14} /> Product details and timings are
-                illustrative demo content.
-              </p>
             </div>
           </div>
         </div>
@@ -160,10 +153,6 @@ export default function Product() {
                   Introduce new feeders with supervision, and follow your vet’s
                   advice on portions.
                 </li>
-                <li>
-                  This store is a simulation: no real product is sold and no
-                  payment is taken.
-                </li>
               </ul>
             </div>
           </aside>
@@ -179,11 +168,11 @@ export default function Product() {
               <p>Play, pause and skip between all three timed drops.</p>
             </div>
             <div className="cta-band-actions">
-              <Link className="btn btn-primary" to="/demo">
-                Open the demo
-              </Link>
-              <Link className="link-arrow" to="/kits">
+              <Link className="btn btn-primary" to="/kits">
                 Shop kits
+              </Link>
+              <Link className="link-arrow" to="/demo">
+                Open the demo
               </Link>
             </div>
           </div>

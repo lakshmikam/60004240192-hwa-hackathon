@@ -51,7 +51,7 @@ export default function Cart() {
           </span>
           <h1>Your cart.</h1>
           <p>
-            {totalQty} {totalQty === 1 ? 'item' : 'items'} · test checkout only
+            {totalQty} {totalQty === 1 ? 'item' : 'items'} in your cart.
           </p>
         </div>
 
@@ -145,7 +145,7 @@ export default function Cart() {
 
             <div className="test-note">
               <SparkleIcon size={16} />
-              <p>Test checkout only — no payment is taken.</p>
+              <p>Demo cart — no payment is taken.</p>
             </div>
 
             <Link className="btn btn-primary btn-block" to="/checkout">

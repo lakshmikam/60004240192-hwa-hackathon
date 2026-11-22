@@ -132,7 +132,7 @@ export default function Checkout() {
             <div className="test-banner">
               <LockIcon size={18} />
               <p>
-                <strong>Test mode.</strong> No payment step. Submitting creates a
+                <strong>Demo checkout.</strong> No payment step — submitting creates a
                 mock order and clears the demo cart.
               </p>
             </div>
@@ -323,7 +323,7 @@ export default function Checkout() {
 
             <div className="test-note">
               <SparkleIcon size={16} />
-              <p>Simulated payment — no card details are collected.</p>
+              <p>Demo checkout — no card details are collected.</p>
             </div>
 
             <button type="submit" className="btn btn-primary btn-block">

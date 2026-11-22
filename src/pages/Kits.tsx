@@ -12,7 +12,6 @@ export default function Kits() {
           </span>
           <h1>Choose your quest size.</h1>
           <p>Every kit is built from three-station quests.</p>
-          <span className="demo-chip">Demo prices and contents</span>
         </div>
       </section>
 
@@ -49,8 +48,8 @@ export default function Kits() {
           </div>
 
           <p className="section-note">
-            Demo store: prices, stock and delivery are simulated. Portions and
-            timing should suit your dog’s normal feeding routine.
+            Portions and timing should suit your dog’s normal feeding
+            routine.
           </p>
         </div>
       </section>
