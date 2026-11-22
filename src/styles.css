@@ -817,10 +817,21 @@ svg {
   justify-content: center;
 }
 
+.render-stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 460px;
+}
+
 .hero-illustration {
   width: 100%;
-  max-width: 640px;
-  height: auto;
+  height: 100%;
+  min-height: 340px;
+  max-height: 640px;
   display: block;
   margin-inline: auto;
 }
@@ -837,12 +848,17 @@ svg {
   transform: translateY(-4px);
 }
 
-/* Mobile: place hero visual higher (above copy) */
+/* Mobile: place hero visual higher (above copy) and tighten spacing */
 @media (max-width: 760px) {
+  .hero {
+    padding: clamp(1.25rem, 5vw, 2.5rem) 0 clamp(2rem, 7vw, 3.5rem);
+  }
+
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
+    gap: clamp(1rem, 4vw, 2rem);
   }
 
   .hero-copy {
@@ -855,14 +871,70 @@ svg {
     max-width: 100%;
     width: 100%;
     margin-inline: auto;
+    padding: 14px 14px 10px;
+    border-radius: var(--radius);
+  }
+
+  .render-stage {
+    min-height: 300px;
+  }
+
+  .hero-illustration {
+    min-height: 250px;
+    max-height: 420px;
   }
 
   .hero-actions {
     justify-content: center;
+    margin-top: 1.5rem;
   }
 
   .hero-facts {
     justify-content: center;
+    margin-top: 1.2rem;
+  }
+
+  .visual-top {
+    padding-bottom: 8px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding-top: 1rem;
+  }
+
+  .hero-copy h1 {
+    margin: 0.8rem 0 0.5rem;
+  }
+
+  .hero-actions {
+    margin-top: 1.2rem;
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .hero-visual {
+    padding: 12px 12px 8px;
+  }
+
+  .render-stage {
+    min-height: 270px;
+  }
+
+  .hero-illustration {
+    min-height: 220px;
+    max-height: 360px;
+  }
+
+  .concept-caption {
+    font-size: 10.5px;
+    padding-top: 8px;
+    margin-top: 0;
   }
 }
 
